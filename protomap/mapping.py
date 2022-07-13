@@ -258,4 +258,3 @@ def scatterplot(x, y, proteins: ProteinGroups, screenlist, save):
     if save:
         mpld3.save_html(fig, save)
     mpld3.show()
-    # return mpld3.fig_to_html()

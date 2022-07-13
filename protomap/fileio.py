@@ -77,6 +77,3 @@ def screen(path:str,proteins:ProteinGroups,fmt:str,method='mean',invert=False):
                 file.write(f'{protein.id()}\n')
     file.close()
     return 
-# Uniprot API
-#def report(proteins: ProteinGroups, path:str):
-    

@@ -71,4 +71,3 @@ def screen(proteins:ProteinGroups,method='mean',invert=False):
         if validate(protein,method=method,invert=invert):
             cleavable.append(protein)
     return cleavable        
-    

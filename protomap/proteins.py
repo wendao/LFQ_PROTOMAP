@@ -119,8 +119,8 @@ class ProteinGroups():
         #pattern = re.compile('{}\s.*[ _-]\d+$'.format(keyword))
         # before which is keyword and after which are digits
         #prefix = re.compile('(?<={}\s)[^\s]*(?=[ _-]\d+)'.format(keyword))
-        # prefix=re.compile('\w*(?=[\s_-]\d+$)')
-        prefix = re.compile('\w*(?=[\s_-]\d+[\s_-]\d+$)')
+        prefix=re.compile('\w*(?=[\s_-]\d+$)')
+        # prefix = re.compile('\w*(?=[\s_-]\d+[\s_-]\d+$)')
         cols = {}
         for i in df.columns:
             # if pattern.match(i):
@@ -136,7 +136,6 @@ class ProteinGroups():
                 except:
                     cols[name] = []
                     cols[name].append(i)
-        print(cols)
 
         if len(cols) != 2:
             raise ValueError("invalid group number!")
@@ -150,7 +149,7 @@ class ProteinGroups():
             # if pros[i].isna().any(axis=None):
             #raise ValueError("Invalid values in dataframe!")
             # sorting columns by experiment number(for both cases: _1 and _01).
-            i.sort(key=lambda x: int(re.split('[_-]', x)[-2]))
+            i.sort(key=lambda x: int(re.split('[_-]', x)[-1]))
         return cols
 
     def ints(self):
